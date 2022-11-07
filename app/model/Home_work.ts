@@ -1,4 +1,4 @@
-import { BelongsTo, BelongsToMany, Column, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import Grade from "./Grade";
 import Student from "./Student";
 import Job from './Job'
@@ -13,12 +13,16 @@ export default class Home_work extends Model{
 
     @Column
     homework_data!: string;
+    @Column
+    name!: string;
 
     @ForeignKey(() => Teacher)
     @Column
     teacher_id!:number;
     @BelongsTo(() => Teacher)
     Teacher!: Teacher
+    @HasMany(() => Job)
+    Jobs!: Job[]
     @BelongsToMany(()=>Student,()=>Job)
     Students?:Student[]
 }

@@ -6,7 +6,6 @@ function AuthMiddleware(ctx: Context,next:Next){
         const { error } = verify(token)
         if(error !== null){
             ctx.body = {
-                //@ts-ignore
                 msg:error.message,
                 code:4000
             }

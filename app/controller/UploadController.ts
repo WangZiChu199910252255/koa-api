@@ -4,9 +4,8 @@ import fs from 'fs'
 import path from "path";
 class UploadController{
     upload = (ctx: Context) => {
-        const file = ctx.request.files?.file
+        const file = ctx.request.files?.file as unknown as File;
         if(file){
-            //@ts-ignore
             const fileType = file.type
             const typeSet = new Set(['image/jpeg', 'image/jpg','image/png','image/gif'])
             if(typeSet.has(fileType)){

@@ -21,7 +21,6 @@ class AdminService{
         return Admin.create(admin)
     }  
     updateAdmin(id:number,admin:any){
-        console.log(id,admin)
         return Admin.update(admin,{where:{id}})
     }
     deleteAdmin(id:number){

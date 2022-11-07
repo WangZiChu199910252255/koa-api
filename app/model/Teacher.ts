@@ -10,8 +10,11 @@ export default class Teacher extends Model{
     password!: string;
     @Column
     username!: string;
+    @Column
+    discipline?: string;
     // @HasMany(() => Homework)
     // Homeworks!:Homework[]
     @BelongsToMany(()=>Grade,()=>Teachers_grade)
     Grades!:Grade[]
+
 }
