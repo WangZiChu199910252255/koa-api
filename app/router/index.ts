@@ -1,16 +1,26 @@
+/*
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2023-02-14 14:35:57
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2023-03-02 16:08:11
+ * @FilePath: /koa-api/app/router/index.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import koaRouter from 'koa-router'
 import AdminController from '../controller/AdminController'
 import IndexController from '../controller/IndexController'
-import LoginController from '../controller/LoginController'
 import UploadController from '../controller/UploadController'
-import AuthMiddleware from '../middleware/AuthMiddleware'
+import UserController from '../controller/UserController'
 import ClassController from '../controller/ClassController'
 import HomeworkController from '../controller/HomeworkController'
 import TeacherController from '../controller/TeacherController'
 import StudentController from '../controller/StudentController'
-const router = new koaRouter({prefix:'/admin'})
-router.post('/login',LoginController.index)
-router.post('/addAdmin',AdminController.addAdmin)
+import Api from '../controller/Api'
+const router = new koaRouter({prefix:''})
+router.post('/api',Api.api)
+router.post('/addUser',UserController.addUser)
+router.post('/updateUser/:username',UserController.updateUser)
+// router.post('/addAdmin',AdminController.addAdmin)
 // router.use(AuthMiddleware)
 router.get('/',IndexController.index)
 router.get('/admin/list',AdminController.getAdminList)
